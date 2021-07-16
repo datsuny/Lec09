@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lec09</string>
+    <string name="bt_public_key">Public Key</string>
+    <string name="bt_private_key">Private Key</string>
+    <string name="bt_encode_text">"Encrypt "</string>
+    <string name="bt_dencode_text">Decode</string>
+</resources>
