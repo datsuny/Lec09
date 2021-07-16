@@ -2,7 +2,10 @@ package com.isc.lec09
 
 import android.util.Base64
 import java.security.Key
+import java.security.KeyFactory
 import java.security.KeyPairGenerator
+import java.security.spec.PKCS8EncodedKeySpec
+import java.security.spec.X509EncodedKeySpec
 import javax.crypto.Cipher
 
 class Cifrado {
@@ -67,6 +70,28 @@ class Cifrado {
             texto = String(decodeByte, charset("UTF-8"))
 
             return texto
+        }
+
+        //convierte la llave publica en un String utilizando un X599
+        fun getPublicKeyStr() : String {
+            val text: String
+            val fact: KeyFactory = KeyFactory.getInstance("RSA")
+            val spec: X509EncodedKeySpec = fact.getKeySpec(publicKey, X509EncodedKeySpec::class.java)
+
+            text = Base64.encodeToString(spec.encoded, Base64.DEFAULT)
+
+            return text;
+        }
+
+        //convierte la llave privada en un String utilizando un PK
+        fun getPrivateKeyStr() : String {
+            val text: String
+            val fact: KeyFactory = KeyFactory.getInstance("RSA")
+            val spec: PKCS8EncodedKeySpec = fact.getKeySpec(privateKey, PKCS8EncodedKeySpec::class.java)
+
+            text = Base64.encodeToString(spec.encoded, Base64.DEFAULT)
+
+            return text;
         }
     }
 }

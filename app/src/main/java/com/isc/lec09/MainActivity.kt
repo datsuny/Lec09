@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.btPublicKey.setOnClickListener {
+            binding.etPublicKey.setText(Cifrado.getPrivateKeyStr())
+        }
+
+        binding.btPrivateKey.setOnClickListener {
+            binding.btPrivateKey.setText(Cifrado.getPrivateKeyStr())
+        }
+
     }
 
 
