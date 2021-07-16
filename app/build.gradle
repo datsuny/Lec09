@@ -30,6 +30,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    //Para poder utilizar la variable binding (viewBinding/ViewModel)
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
