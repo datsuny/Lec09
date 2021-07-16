@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lec09</string>
+    <string name="bt_public_key">Llave publica</string>
+    <string name="bt_private_key">Llave privada</string>
+    <string name="bt_encode_text">Encriptar</string>
+    <string name="bt_dencode_text">Desencriptar</string>
 </resources>
