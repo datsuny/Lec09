@@ -53,10 +53,10 @@ class Cifrado {
         * RSA y se inicializa con la llave privada
         * se cifra con la llave publica, se descifra con la llave privada*/
         fun descifrar(textoEnClave: String) : String {
-            var texto: String //Donde quedara el texto descifrado
+            val texto: String //Donde quedara el texto descifrado
 
             //objeto para utilziar el algoritmo para cifrar
-            var c: Cipher = Cipher.getInstance("RSA")
+            val c: Cipher = Cipher.getInstance("RSA")
             c.init(Cipher.DECRYPT_MODE, privateKey)
 
             //paso del texto a descifrar a un arreglo de bytes.
