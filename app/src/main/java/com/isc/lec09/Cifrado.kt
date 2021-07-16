@@ -47,5 +47,26 @@ class Cifrado {
 
             return texto
         }
+
+        /*funcion estatica para cifrar el texto
+        * utiliza un objeto cipher para crear una instancia de encriptacion
+        * RSA y se inicializa con la llave privada
+        * se cifra con la llave publica, se descifra con la llave privada*/
+        fun descifrar(textoEnClave: String) : String {
+            var texto: String //Donde quedara el texto descifrado
+
+            //objeto para utilziar el algoritmo para cifrar
+            var c: Cipher = Cipher.getInstance("RSA")
+            c.init(Cipher.DECRYPT_MODE, privateKey)
+
+            //paso del texto a descifrar a un arreglo de bytes.
+            val data = Base64.decode(textoEnClave, Base64.DEFAULT)
+            val decodeByte: ByteArray = c.doFinal(data)
+
+            //Se transforma el areglo en bytes a un texto legible.
+            texto = String(decodeByte, charset("UTF-8"))
+
+            return texto
+        }
     }
 }
